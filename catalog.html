@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dog Store — магазин качественных собак. Молодёжный неоновый стиль Urban Paw.">
+  <title>Каталог — Dog Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style-urbanpaw.css">
+
+    <!-- jQuery & Slick Carousel (CDN) -->
+    <link rel="stylesheet" href="assets/vendor/slick.css">
+    <link rel="stylesheet" href="assets/vendor/slick-theme.css">
+    <script src="assets/vendor/jquery.min.js"></script>
+    <script src="assets/vendor/slick.min.js"></script>
+    <!-- Project JS -->
+    <script defer src="assets/js/main.js"></script>
+</head>
+<body class="bg-dark-true text-body-urban">
+<header class="glass-nav border-bottom border-neon">
+  <nav class="navbar navbar-expand-lg container">
+    <a class="navbar-brand d-flex align-items-center neon-brand" href="index.html">
+      <span class="brand-dot me-2"></span>
+      <span class="fw-bold">Dog Store</span>
+    </a>
+    <button class="navbar-toggler neon-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Переключить навигацию">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+        <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+        <li class="nav-item"><a class="nav-link" href="breeds.html">Породы</a></li>
+        <li class="nav-item"><a class="nav-link" href="care.html">Уход</a></li>
+        <li class="nav-item"><a class="nav-link" href="museum.html">Музей</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">Контакты</a></li>
+      </ul>
+    </div>
+    <a href="gallery.html">Галерея</a>
+  <a href="guestbook.html">Гостевая</a>
+  <a href="catalog.html" onclick="toggleFilters(); return false;">Фильтры каталога</a>
+  <a href="javascript:generateCoupon()">Купон -10%</a>
+</nav>
+</header>
+<main>
+<section class="container" data-catalog>
+
+<section class="py-5">
+  <div class="container">
+    <h1 class="h2 mb-4">Каталог щенков</h1>
+    <section class="mb-4">
+      <form class="row g-3">
+        <div class="col-sm-6 col-md-3">
+          <label class="form-label" for="breed">Порода</label>
+          <input id="breed" class="form-control" type="text" placeholder="Напр. шпиц">
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <label class="form-label" for="size">Размер</label>
+          <select id="size" class="form-select">
+            <option>Любой</option><option>Малый</option><option>Средний</option><option>Крупный</option>
+          </select>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <label class="form-label" for="age">Возраст</label>
+          <select id="age" class="form-select">
+            <option>Любой</option><option>2–3 мес</option><option>3–6 мес</option><option>6+ мес</option>
+          </select>
+        </div>
+        <div class="col-sm-6 col-md-3 d-grid">
+          <label class="form-label invisible">Найти</label>
+          <button class="btn btn-neon" type="button">Поиск</button>
+        </div>
+      </form>
+    
+    <div class="card-list">
+      <article class="card product" data-item data-price="39990" data-breed="Самоед">
+        <h3>Самоед — дружелюбный</h3>
+        <p>Отличный компаньон.</p>
+        <div class="price">39 990 ₽</div>
+        <a class="button more" style="margin-top:auto">Подробнее</a>
+      </article>
+      <article class="card product" data-item data-price="29990" data-breed="Хаски">
+        <h3>Хаски — энергичный</h3>
+        <p>Спорт и прогулки.</p>
+        <div class="price">29 990 ₽</div>
+        <a class="button more" style="margin-top:auto">Подробнее</a>
+      </article>
+      <article class="card product" data-item data-price="34990" data-breed="Лабрадор">
+        <h3>Лабрадор — умный</h3>
+        <p>Подходит для семьи.</p>
+        <div class="price">34 990 ₽</div>
+        <a class="button more" style="margin-top:auto">Подробнее</a>
+      </article>
+    </div>
+    
+</section>
+
+    <div class="row g-4">
+      
+    <div class="col-12 col-sm-6 col-lg-4">
+      <article class="card shadow-neon h-100">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/White%20Samoyed%20dog1.jpg" class="card-img-top img-fluid" alt="Щенок Север">
+        <div class="card-body">
+          <h3 class="h5 card-title">Север <span class="badge badge-neon ms-2">Самоед</span></h3>
+          <p class="card-text">Цена/взнос: <strong>65 000 ₽</strong>. Документы, чип, ветпаспорт.</p>
+          <div class="d-flex gap-2">
+            <a href="breed-samoyed.html" class="btn btn-sm btn-outline-neon">О породе</a>
+            <button class="btn btn-sm btn-neon" data-bs-toggle="modal" data-bs-target="#vaccinesModal">Вакцинации</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4">
+      <article class="card shadow-neon h-100">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/German%20Shepherd%20-%20DSC%200346%20(10096362833).jpg" class="card-img-top img-fluid" alt="Щенок Рекс">
+        <div class="card-body">
+          <h3 class="h5 card-title">Рекс <span class="badge badge-neon ms-2">Немецкая овчарка</span></h3>
+          <p class="card-text">Цена/взнос: <strong>55 000 ₽</strong>. Документы, чип, ветпаспорт.</p>
+          <div class="d-flex gap-2">
+            <a href="breed-gsd.html" class="btn btn-sm btn-outline-neon">О породе</a>
+            <button class="btn btn-sm btn-neon" data-bs-toggle="modal" data-bs-target="#vaccinesModal">Вакцинации</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4">
+      <article class="card shadow-neon h-100">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Female%20Black%20Labrador%20Retriever.jpg" class="card-img-top img-fluid" alt="Щенок Ривер">
+        <div class="card-body">
+          <h3 class="h5 card-title">Ривер <span class="badge badge-neon ms-2">Лабрадор-ретривер</span></h3>
+          <p class="card-text">Цена/взнос: <strong>60 000 ₽</strong>. Документы, чип, ветпаспорт.</p>
+          <div class="d-flex gap-2">
+            <a href="breed-labrador.html" class="btn btn-sm btn-outline-neon">О породе</a>
+            <button class="btn btn-sm btn-neon" data-bs-toggle="modal" data-bs-target="#vaccinesModal">Вакцинации</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4">
+      <article class="card shadow-neon h-100">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Golden%20Retriever%20standing%20Tucker.jpg" class="card-img-top img-fluid" alt="Щенок Санни">
+        <div class="card-body">
+          <h3 class="h5 card-title">Санни <span class="badge badge-neon ms-2">Золотистый ретривер</span></h3>
+          <p class="card-text">Цена/взнос: <strong>62 000 ₽</strong>. Документы, чип, ветпаспорт.</p>
+          <div class="d-flex gap-2">
+            <a href="breed-golden.html" class="btn btn-sm btn-outline-neon">О породе</a>
+            <button class="btn btn-sm btn-neon" data-bs-toggle="modal" data-bs-target="#vaccinesModal">Вакцинации</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4">
+      <article class="card shadow-neon h-100">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Siberian-husky-1291343_1920.jpg" class="card-img-top img-fluid" alt="Щенок Шторм">
+        <div class="card-body">
+          <h3 class="h5 card-title">Шторм <span class="badge badge-neon ms-2">Сибирский хаски</span></h3>
+          <p class="card-text">Цена/взнос: <strong>50 000 ₽</strong>. Документы, чип, ветпаспорт.</p>
+          <div class="d-flex gap-2">
+            <a href="breed-husky.html" class="btn btn-sm btn-outline-neon">О породе</a>
+            <button class="btn btn-sm btn-neon" data-bs-toggle="modal" data-bs-target="#vaccinesModal">Вакцинации</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4">
+      <article class="card shadow-neon h-100">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Great%20Dane%20puppy%20blue.jpg" class="card-img-top img-fluid" alt="Щенок Макс">
+        <div class="card-body">
+          <h3 class="h5 card-title">Макс <span class="badge badge-neon ms-2">Немецкий дог</span></h3>
+          <p class="card-text">Цена/взнос: <strong>85 000 ₽</strong>. Документы, чип, ветпаспорт.</p>
+          <div class="d-flex gap-2">
+            <a href="breed-greatdane.html" class="btn btn-sm btn-outline-neon">О породе</a>
+            <button class="btn btn-sm btn-neon" data-bs-toggle="modal" data-bs-target="#vaccinesModal">Вакцинации</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="vaccinesModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content card">
+      <div class="modal-header">
+        <h2 class="modal-title h5">Вакцинации</h2>
+        <button class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped table-hover">
+          <caption>График прививок щенка</caption>
+          <thead><tr><th scope="col">Дата</th><th scope="col">Вакцина</th><th scope="col">Ветеринар</th></tr></thead>
+          <tbody>
+            <tr><td>2025-08-10</td><td>Моновалентная</td><td>Dr. Иванова</td></tr>
+            <tr><td>2025-09-10</td><td>Поливалентная</td><td>Dr. Иванова</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-neon" data-bs-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+<footer class="mt-5 py-4 border-top border-neon-soft">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <p class="m-0 small text-muted">&copy; <span id="year">2025</span> Dog Store — молодёжный выбор ответственных хозяев.</p>
+    <nav class="mt-2 mt-md-0">
+      <a class="text-decoration-none me-3 link-neon" href="about.html#contacts">Связаться</a>
+      <a class="text-decoration-none me-3 link-neon" href="breeds.html">Энциклопедия</a>
+      <a class="text-decoration-none link-neon" href="catalog.html">Щенки</a>
+      <a href="gallery.html">Галерея</a>
+  <a href="guestbook.html">Гостевая</a>
+  <a href="catalog.html" onclick="toggleFilters(); return false;">Фильтры каталога</a>
+  <a href="javascript:generateCoupon()">Купон -10%</a>
+</nav>
+  </div>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Inline script (SCRIPT container) required by the lab:
+(function() {
+  // Show active page in nav
+  const here = location.pathname.split('/').pop();
+  document.querySelectorAll('nav a').forEach(a => {
+    if (a.getAttribute('href') === here) a.classList.add('active-link');
+  });
+})();
+</script>
+</body>
+</html>

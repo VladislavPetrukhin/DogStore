@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерея — DogStore</title>
+
+  <link rel="stylesheet" href="assets/css/style-urbanpaw.css">
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Slick Slider CSS CDN -->
+<link rel="stylesheet" type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+<!-- Slick Slider JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+  <!-- Project JS -->
+  <script defer src="assets/js/main.js"></script>
+</head>
+
+<body>
+<header class="header">
+  <div class="container">
+    <h1>Галерея собак</h1>
+
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="breeds.html">Породы</a>
+      <a href="guestbook.html">Гостевая</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section>
+    <h2>Карусель (jQuery Slick)</h2>
+
+    <div class="dog-carousel main-slider">
+      <div><img src="assets/img/gal1.jpg" alt="Самоед" /></div>
+      <div><img src="assets/img/gal2.jpg" alt="Хаски" /></div>
+      <div><img src="assets/img/gal3.jpg" alt="Лабрадор" /></div>
+      <div><img src="assets/img/gal4.jpg" alt="Овчарка" /></div>
+      <div><img src="assets/img/gal5.jpg" alt="Ретривер" /></div>
+    </div>
+
+    <div class="dog-thumbs thumb-slider">
+      <div><img src="assets/img/gal1.jpg" alt="Самоед"/></div>
+      <div><img src="assets/img/gal2.jpg" alt="Хаски"/></div>
+      <div><img src="assets/img/gal3.jpg" alt="Лабрадор"/></div>
+      <div><img src="assets/img/gal4.jpg" alt="Овчарка"/></div>
+      <div><img src="assets/img/gal5.jpg" alt="Ретривер"/></div>
+    </div>
+
+
+    <p class="hint">Клик по фото — свойства изображения. Стрелки на клавиатуре работают.</p>
+  </section>
+
+  <section>
+    <h2>Фото-галерея</h2>
+    <div class="grid gallery-grid">
+      <a href="assets/img/gal1.jpg" target="_blank"><img src="assets/img/gal1.jpg" alt=""></a>
+      <a href="assets/img/gal2.jpg" target="_blank"><img src="assets/img/gal2.jpg" alt=""></a>
+      <a href="assets/img/gal3.jpg" target="_blank"><img src="assets/img/gal3.jpg" alt=""></a>
+      <a href="assets/img/gal4.jpg" target="_blank"><img src="assets/img/gal4.jpg" alt=""></a>
+      <a href="assets/img/gal5.jpg" target="_blank"><img src="assets/img/gal5.jpg" alt=""></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer"><div class="container">© DogStore</div></footer>
+</body>
+</html>
