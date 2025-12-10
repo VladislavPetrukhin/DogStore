@@ -23,6 +23,42 @@
 
   <!-- Галерея -->
   <script defer src="assets/js/loadGallery.js"></script>
+<style>
+/* ОЧЕНЬ ЖЕСТКИЕ СТИЛИ — перекрывают любую тему */
+.main-slider .slick-slide,
+.dog-carousel.main-slider .slick-slide {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.main-slider .slick-slide img,
+.dog-carousel.main-slider .slick-slide img {
+    max-height: 60vh !important; /* адаптивная высота */
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    border-radius: 12px !important;
+}
+
+/* Миниатюры */
+.thumb-slider .slick-slide img,
+.dog-thumbs.thumb-slider .slick-slide img {
+    height: 100px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    opacity: 0.6 !important;
+    border-radius: 8px !important;
+}
+
+.thumb-slider .slick-current img,
+.dog-thumbs.thumb-slider .slick-current img {
+    opacity: 1 !important;
+    border: 2px solid #0ff !important;
+}
+</style>
+
+
 </head>
 
 <body class="bg-dark-true text-body-urban">
