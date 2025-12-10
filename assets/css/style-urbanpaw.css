@@ -338,3 +338,100 @@ header .nav a:hover { text-decoration: underline; }
     bottom: -40px;
 }
 
+
+
+/* Dynamic DogPanel-powered catalog grid */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 1.5rem;
+}
+
+.dog-card {
+  background: radial-gradient(circle at top, rgba(157, 134, 255, 0.22), rgba(8, 8, 16, 0.96));
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 14px 16px;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.65);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dog-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 8px;
+}
+
+.dog-card h3 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.dog-card .breed {
+  font-size: 0.9rem;
+  color: #c6c6ff;
+}
+
+.dog-card .price {
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Dynamic news list (DogPanel-powered) */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 1.5rem;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 14px;
+  background: radial-gradient(circle at top left, rgba(157, 134, 255, 0.18), rgba(8,8,14,0.96));
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 14px 16px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.6);
+}
+
+.news-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.news-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.news-title {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.news-text {
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+.news-date {
+  font-size: 0.8rem;
+  color: #9a9abd;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .news-item {
+    grid-template-columns: 1fr;
+  }
+}

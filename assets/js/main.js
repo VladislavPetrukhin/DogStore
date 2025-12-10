@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </ul>
     <pre class="pre">${escapeHtml(data.message)}</pre>
   </article>
-  <p><a href="index.html">Вернуться на сайт</a></p>
+  <p><a href="index.php">Вернуться на сайт</a></p>
 </body></html>`;
       w.document.open();
       w.document.write(html);
