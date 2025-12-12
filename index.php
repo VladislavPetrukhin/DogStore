@@ -30,31 +30,61 @@
 <?php include 'header.php'; ?>
 
 <main>
-  <!-- Hero block -->
-  <section id="hero" class="py-5">
-    <div class="container">
-      <div class="row align-items-center">
+<section id="hero" class="py-5">
+  <div class="container">
+    <div class="row align-items-start">
 
-        <div class="col-lg-7">
-          <h1 class="hero-title">Dog Store — магазин качественных собак</h1>
-          <p class="lead mt-3">Подберите породу под ваш образ жизни и найдите собаку мечты.</p>
+      <!-- ЛЕВАЯ КОЛОНКА: текст + кнопки + поиск + карточка -->
+      <div class="col-lg-7 d-flex flex-column">
 
-          <div class="d-flex gap-3 mt-4">
-            <a href="catalog.php" class="btn btn-neon btn-lg">Посмотреть собак</a>
-            <a href="breeds.php" class="btn btn-outline-neon btn-lg">Подобрать породу</a>
+        <h1 class="hero-title">
+          Dog Store — магазин качественных собак
+        </h1>
+
+        <p class="lead mt-3">
+          Подберите породу под ваш образ жизни и найдите собаку мечты.
+        </p>
+
+        <div class="d-flex gap-3 mt-4">
+          <a href="catalog.php" class="btn btn-neon btn-lg">
+            Посмотреть собак
+          </a>
+          <a href="breeds.php" class="btn btn-outline-neon btn-lg">
+            Подобрать породу
+          </a>
+        </div>
+
+        <form action="search.php" method="get" class="hero-search mt-4">
+          <div class="hero-search-inner">
+            <input
+              type="text"
+              name="q"
+              placeholder="Поиск по сайту"
+              aria-label="Поиск по сайту"
+              required
+            >
+            <button type="submit" class="hero-search-btn">Найти</button>
           </div>
-        </div>
+        </form>
 
-        <div class="col-lg-5 mt-4 mt-lg-0">
-          <aside class="p-4 card">
-            <h2 class="h4">Что такое Urban Paw?</h2>
-            <p>Стиль собаки. Современный подход к изучению и содержанию питомцев.</p>
-          </aside>
-        </div>
+        <aside class="p-4 card mt-4">
+          <h2 class="h4">Что такое Urban Paw?</h2>
+          <p>
+            Стиль собаки. Современный подход к изучению и содержанию питомцев.
+          </p>
+        </aside>
 
       </div>
+
+      <!-- ПРАВАЯ КОЛОНКА-->
+      <div class="col-lg-5 d-none d-lg-block">
+        <!-- можно оставить пустой -->
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Popular breeds -->
   <section class="py-5">

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/config.php';
+require_once __DIR__ . '\config.php';
 require_login();
 
 $stmt = $pdo->query("SELECT d.*, b.name AS breed_name
