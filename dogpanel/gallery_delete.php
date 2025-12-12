@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config.php';
+require_login();
 
 if (isset($_GET['id'])) {
     $stmt = $pdo->prepare("SELECT filename FROM gallery_photos WHERE id=?");

@@ -31,7 +31,7 @@
   <form id="guest-form" novalidate>
     <div class="form-row">
       <label>Имя <span class="req">*</span>
-        <input type="text" name="name" required minlength="2" maxlength="40" placeholder="Владислав">
+        <input type="text" name="name" required minlength="2" maxlength="40" placeholder="Имя">
       </label>
       <span class="error" data-for="name"></span>
     </div>

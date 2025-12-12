@@ -97,6 +97,15 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!validateForm(form)) return;
 
       const data = Object.fromEntries(new FormData(form).entries());
+fetch('/api/review_add.php', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(data)
+})
+.catch(() => {
+  console.warn('Не удалось сохранить отзыв');
+});
+
       const w = window.open('', '_blank');
       const time = new Date().toLocaleString();
       const html = `<!DOCTYPE html>

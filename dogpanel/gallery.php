@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config.php';
+require_login();
 
 // Fetch photos
 $stmt = $pdo->query("SELECT * FROM gallery_photos ORDER BY uploaded_at DESC");
@@ -11,7 +12,22 @@ $photos = $stmt->fetchAll();
 <div class="admin-container">
     <h1 class="admin-title">Галерея фото</h1>
 
-    <a href="gallery_add.php" class="btn btn-green">➕ Добавить фото</a>
+    <div class="form-card" style="margin-bottom:16px;">
+      <h3 style="margin-bottom:12px;">Добавить фото (AJAX)</h3>
+
+      <form id="galleryUploadForm" enctype="multipart/form-data">
+        <div class="form-row">
+          <label>Файл</label>
+          <input id="galleryFile" type="file" accept="image/*" required>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn" type="submit">Загрузить</button>
+        </div>
+      </form>
+
+      <div id="galleryErr" class="alert alert-error" style="display:none;"></div>
+    </div>
 
     <table class="admin-table mt-3">
         <tr>
@@ -20,6 +36,7 @@ $photos = $stmt->fetchAll();
             <th>Действие</th>
         </tr>
 
+        <tbody id="galleryBody">
         <?php foreach ($photos as $p): ?>
         <tr>
             <td>
@@ -34,7 +51,10 @@ $photos = $stmt->fetchAll();
             </td>
         </tr>
         <?php endforeach; ?>
+        </tbody>
     </table>
 </div>
+
+<script src="assets/ajax-gallery.js"></script>
 
 <?php include 'footer.php'; ?>
