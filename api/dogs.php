@@ -3,7 +3,7 @@ require_once __DIR__ . '/../server/config.php';
 
 $q = trim($_GET['q'] ?? '');
 $params = [];
-$sql = "SELECT d.id, d.name, b.name AS breed, d.price, d.thumb_photo
+$sql = "SELECT d.id, d.name, b.name AS breed, d.price, d.main_photo
         FROM dogs d
         LEFT JOIN breeds b ON b.id = d.breed_id";
 

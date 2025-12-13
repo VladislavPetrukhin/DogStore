@@ -24,6 +24,9 @@
         <li class="nav-item"><a class="nav-link" href="guestbook.html">Гостевая</a></li>
         <li class="nav-item"><a class="nav-link" href="#" onclick="toggleFilters(); return false;">Фильтры каталога</a></li>
         <li class="nav-item"><a class="nav-link" href="javascript:generateCoupon()">Купон -10%</a></li>
+<li class="nav-item">
+  <a class="nav-link" href="stats.php">Статистика</a>
+</li>
       </ul>
     </div>
   </nav>
