@@ -546,3 +546,8 @@ header .nav a:hover { text-decoration: underline; }
   opacity: .85;
   transition: .15s;
 }
+.brand-icon {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 200, 0.8));
+}
