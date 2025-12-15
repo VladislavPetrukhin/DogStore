@@ -27,6 +27,7 @@
 
 <body class="bg-dark-true text-body-urban">
 
+<?php include 'head.php'; ?>
 <?php include 'header.php'; ?>
 
 <main>

@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__.'/head.php';
+require_once __DIR__.'/header.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -16,16 +20,6 @@
 
 </head>
 <body>
-<header class="header">
-  <div class="container">
-    <h1>Гостевая книга</h1>
-    <nav class="nav">
-      <a href="index.html">Главная</a>
-      <a href="catalog.html">Каталог</a>
-      <a href="breeds.html">Породы</a>
-    </nav>
-  </div>
-</header>
 
 <main class="container">
   <form id="guest-form" novalidate>
@@ -78,7 +72,6 @@
   </div>
 </main>
 
-<footer class="footer"><div class="container">© DogStore</div></footer>
-<!-- footer_inline -->
 </body>
 </html>
+<?php require_once __DIR__.'/footer.php'; ?>

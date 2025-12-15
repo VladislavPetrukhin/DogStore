@@ -530,3 +530,19 @@ header .nav a:hover { text-decoration: underline; }
     0 0 0 2px rgba(34,211,238,0.5),
     0 0 24px rgba(34,211,238,0.6);
 }
+.navbar .nav-link {
+  white-space: nowrap;
+}
+
+.navbar {
+  backdrop-filter: blur(10px);
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  opacity: 1;
+}
+.navbar .nav-link {
+  opacity: .85;
+  transition: .15s;
+}

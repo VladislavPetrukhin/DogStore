@@ -1,6 +1,6 @@
 <header class="glass-nav border-bottom border-neon">
   <nav class="navbar navbar-expand-lg container">
-    <a class="navbar-brand d-flex align-items-center neon-brand" href="index.html">
+    <a class="navbar-brand d-flex align-items-center neon-brand" href="index.php">
       <span class="brand-dot me-2"></span>
       <span class="fw-bold">Dog Store</span>
     </a>
@@ -15,18 +15,15 @@
         <!-- Основная навигация -->
         <li class="nav-item"><a class="nav-link" href="index.php">Главная</a></li>
         <li class="nav-item"><a class="nav-link" href="catalog.php">Каталог</a></li>
-        <li class="nav-item"><a class="nav-link" href="breeds.html">Породы</a></li>
-        <li class="nav-item"><a class="nav-link" href="care.html">Уход</a></li>
-        <li class="nav-item"><a class="nav-link" href="museum.html">Музей</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">Контакты</a></li>
-        <li class="nav-item"><a class="nav-link" href="gallery.html">Галерея</a></li>
+        <li class="nav-item"><a class="nav-link" href="breeds.php">Породы</a></li>
+        <li class="nav-item"><a class="nav-link" href="care.php">Уход</a></li>
+        <li class="nav-item"><a class="nav-link" href="museum.php">Музей</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.php">Контакты</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.php">Галерея</a></li>
 	<li class="nav-item"><a class="nav-link" href="news.php">Новости</a></li>
-        <li class="nav-item"><a class="nav-link" href="guestbook.html">Гостевая</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" onclick="toggleFilters(); return false;">Фильтры каталога</a></li>
+        <li class="nav-item"><a class="nav-link" href="guestbook.php">Гостевая</a></li>
         <li class="nav-item"><a class="nav-link" href="javascript:generateCoupon()">Купон -10%</a></li>
-<li class="nav-item">
-  <a class="nav-link" href="stats.php">Статистика</a>
-</li>
+        <li class="nav-item"><a class="nav-link" href="stats.php">Статистика</a></li>
       </ul>
     </div>
   </nav>

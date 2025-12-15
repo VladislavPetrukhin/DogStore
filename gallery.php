@@ -1,3 +1,8 @@
+<?php
+require_once __DIR__.'/head.php';
+require_once __DIR__.'/header.php';
+?>
+
 <!doctype html>
 <html lang="ru">
 <head>
@@ -63,36 +68,6 @@
 
 <body class="bg-dark-true text-body-urban">
 
-<header class="glass-nav border-bottom border-neon">
-  <nav class="navbar navbar-expand-lg container">
-    <a class="navbar-brand d-flex align-items-center neon-brand" href="index.html">
-      <span class="brand-dot me-2"></span>
-      <span class="fw-bold">Dog Store</span>
-    </a>
-
-    <button class="navbar-toggler neon-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-        <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-        <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
-        <li class="nav-item"><a class="nav-link" href="breeds.html">Породы</a></li>
-        <li class="nav-item"><a class="nav-link" href="care.html">Уход</a></li>
-        <li class="nav-item"><a class="nav-link" href="museum.html">Музей</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">Контакты</a></li>
-
-        <li class="nav-item"><a class="nav-link active" href="gallery.html">Галерея</a></li>
-        <li class="nav-item"><a class="nav-link" href="guestbook.html">Гостевая</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" onclick="toggleFilters(); return false;">Фильтры каталога</a></li>
-        <li class="nav-item"><a class="nav-link" href="javascript:generateCoupon()">Купон -10%</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
 <main class="py-5">
   <div class="container">
     <h1 class="big-title mb-4">Галерея</h1>
@@ -105,17 +80,6 @@
   </div>
 </main>
 
-<footer class="mt-5 py-4 border-top border-neon-soft">
-  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-    <p class="m-0 small text-muted">&copy; <span id="year">2025</span> Dog Store — молодёжный выбор ответственных хозяев.</p>
-
-    <nav class="mt-2 mt-md-0">
-      <a class="text-decoration-none link-neon me-3" href="about.html#contacts">Связаться</a>
-      <a class="text-decoration-none link-neon me-3" href="breeds.html">Энциклопедия</a>
-      <a class="text-decoration-none link-neon" href="catalog.html">Щенки</a>
-    </nav>
-  </div>
-</footer>
 
 <!-- Bootstrap JS (если нужен) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -130,3 +94,4 @@
 
 </body>
 </html>
+<?php require_once __DIR__.'/footer.php'; ?>

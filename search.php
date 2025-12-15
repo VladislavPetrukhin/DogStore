@@ -41,7 +41,7 @@ if ($q !== '') {
 
 <body class="urbanpaw">
 <?php include 'header.php'; ?>
-
+<?php include 'head.php'; ?>
 
 
 <!-- ===== КОНТЕНТ ===== -->

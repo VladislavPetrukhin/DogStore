@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__.'/head.php';
+require_once __DIR__.'/header.php';
+?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -18,31 +22,6 @@
     <script defer src="assets/js/main.js"></script>
 </head>
 <body class="bg-dark-true text-body-urban">
-<header class="glass-nav border-bottom border-neon">
-  <nav class="navbar navbar-expand-lg container">
-    <a class="navbar-brand d-flex align-items-center neon-brand" href="index.html">
-      <span class="brand-dot me-2"></span>
-      <span class="fw-bold">Dog Store</span>
-    </a>
-    <button class="navbar-toggler neon-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Переключить навигацию">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-        <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
-        <li class="nav-item"><a class="nav-link" href="breeds.html">Породы</a></li>
-        <li class="nav-item"><a class="nav-link" href="care.html">Уход</a></li>
-        <li class="nav-item"><a class="nav-link" href="museum.html">Музей</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">Контакты</a></li>
-      </ul>
-    </div>
-    <a href="gallery.html">Галерея</a>
-  <a href="guestbook.html">Гостевая</a>
-  <a href="catalog.html" onclick="toggleFilters(); return false;">Фильтры каталога</a>
-  <a href="javascript:generateCoupon()">Купон -10%</a>
-</nav>
-</header>
 <main>
 
 <section class="py-5">
@@ -90,20 +69,7 @@
   </div>
 </section>
 </main>
-<footer class="mt-5 py-4 border-top border-neon-soft">
-  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-    <p class="m-0 small text-muted">&copy; <span id="year">2025</span> Dog Store — молодёжный выбор ответственных хозяев.</p>
-    <nav class="mt-2 mt-md-0">
-      <a class="text-decoration-none me-3 link-neon" href="about.html#contacts">Связаться</a>
-      <a class="text-decoration-none me-3 link-neon" href="breeds.html">Энциклопедия</a>
-      <a class="text-decoration-none link-neon" href="catalog.html">Щенки</a>
-      <a href="gallery.html">Галерея</a>
-  <a href="guestbook.html">Гостевая</a>
-  <a href="catalog.html" onclick="toggleFilters(); return false;">Фильтры каталога</a>
-  <a href="javascript:generateCoupon()">Купон -10%</a>
-</nav>
-  </div>
-</footer>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const y = document.getElementById('year');
@@ -124,3 +90,4 @@
 </script>
 </body>
 </html>
+<?php require_once __DIR__.'/footer.php'; ?>
