@@ -112,6 +112,38 @@
     if (y) y.textContent = new Date().getFullYear();
   });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.getElementById('particles-js');
+  if (!el || typeof particlesJS !== 'function') return;
+
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 100, density: { enable: true, value_area: 900 } },
+      color: { value: "#00f5ff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.35, random: true },
+      size: { value: 2.5, random: true },
+      line_linked: { enable: true, distance: 140, opacity: 0.18, width: 1 },
+      move: { enable: true, speed: 1.2, out_mode: "out" }
+    },
+    interactivity: {
+      detect_on: "window",
+      events: {
+        onhover: { enable: true, mode: "grab" },
+        onclick: { enable: true, mode: "push" },
+        resize: true
+      },
+      modes: {
+        grab: { distance: 160, line_linked: { opacity: 0.35 } },
+        push: { particles_nb: 2 }
+      }
+    },
+    retina_detect: true
+  });
+});
+</script>
 
 </body>
 </html>

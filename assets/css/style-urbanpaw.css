@@ -551,3 +551,16 @@ header .nav a:hover { text-decoration: underline; }
   height: 24px;
   filter: drop-shadow(0 0 6px rgba(0, 255, 200, 0.8));
 }
+/* particles background */
+#particles-js{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none; /* чтобы меню и кнопки нормально нажимались */
+}
+
+/* весь контент поверх частиц */
+header, main, footer{
+  position: relative;
+  z-index: 1;
+}

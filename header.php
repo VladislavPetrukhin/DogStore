@@ -1,3 +1,4 @@
+<div id="particles-js" aria-hidden="true"></div>
 <header class="glass-nav border-bottom border-neon">
   <nav class="navbar navbar-expand-lg container">
     <a class="navbar-brand d-flex align-items-center neon-brand" href="index.php">
