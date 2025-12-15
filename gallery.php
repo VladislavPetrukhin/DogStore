@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__.'/head.php';
 require_once __DIR__.'/header.php';
 ?>
 
@@ -34,8 +33,10 @@ require_once __DIR__.'/header.php';
 .dog-carousel.main-slider .slick-slide {
     display: flex !important;
     justify-content: center !important;
-    align-items: center !important;
+    align-items: flex-start !important;
+    padding-top: 1rem; /* ← аккуратный отступ сверху */
 }
+
 
 .main-slider .slick-slide img,
 .dog-carousel.main-slider .slick-slide img {
@@ -61,6 +62,35 @@ require_once __DIR__.'/header.php';
     opacity: 1 !important;
     border: 2px solid #0ff !important;
 }
+.main-slider {
+    position: relative;
+}
+
+/* Стрелки */
+.main-slider .slick-prev,
+.main-slider .slick-next {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 10;
+}
+
+/* Немного отодвинем от краёв */
+.main-slider .slick-prev {
+    left: 12px;
+}
+
+.main-slider .slick-next {
+    right: 12px;
+}
+.main-slider .slick-track {
+    display: flex;
+    align-items: flex-start;
+}
+
+.main-slider .slick-slide {
+    height: auto !important;
+}
+
 </style>
 
 
@@ -68,7 +98,7 @@ require_once __DIR__.'/header.php';
 
 <body class="bg-dark-true text-body-urban">
 
-<main class="py-5">
+<main class="pt-2 pb-4">
   <div class="container">
     <h1 class="big-title mb-4">Галерея</h1>
 
