@@ -1,104 +1,98 @@
 <?php
-require_once __DIR__.'/head.php';
-require_once __DIR__.'/header.php';
-?>
-<!doctype html>
-<html lang="ru">
-<body class="bg-dark-true text-body-urban">
-<main>
+require_once __DIR__ . '/dogpanel/config.php';
+require_once __DIR__ . '/head.php';
+require_once __DIR__ . '/header.php';
 
-<section class="py-5">
-  <div class="container">
-    <h1 class="h2 mb-4">Энциклопедия пород</h1>
-    <aside class="mb-3">
-      <p class="small text-muted">Группы <abbr title="Fédération Cynologique Internationale">FCI</abbr> (статично): 
-        <a href="#" class="link-neon">Группа 1</a> · <a href="#" class="link-neon">Группа 2</a> · <a href="#" class="link-neon">Группа 9</a>
-      </p>
-    </aside>
-    <div class="row g-4">
-      
-    <div class="col-12 col-sm-6 col-lg-4">
-      <article class="card shadow-neon h-100">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/White%20Samoyed%20dog1.jpg" class="card-img-top img-fluid" alt="Порода Самоед">
-        <div class="card-body">
-          <h3 class="card-title h5">Самоед</h3>
-          <p class="card-text">Северный оптимист — улыбчивый и активный.</p>
-          <a href="breed-samoyed.html" class="btn btn-sm btn-neon">Подробнее</a>
-        </div>
-      </article>
+if (!isset($pdo) || !($pdo instanceof PDO)) {
+  die('PDO не инициализирован. Проверь dogpanel/config.php');
+}
+
+function has_col(PDO $pdo, $table, $col) {
+  $db = $pdo->query("SELECT DATABASE()")->fetchColumn();
+  $st = $pdo->prepare("
+    SELECT 1
+    FROM INFORMATION_SCHEMA.COLUMNS
+    WHERE TABLE_SCHEMA = :db AND TABLE_NAME = :t AND COLUMN_NAME = :c
+    LIMIT 1
+  ");
+  $st->execute([
+    ':db' => $db,
+    ':t'  => $table,
+    ':c'  => $col,
+  ]);
+  return (bool)$st->fetchColumn();
+}
+
+$cols = ['id', 'name'];
+
+$optional = ['slug', 'image_url', 'short_desc'];
+foreach ($optional as $c) {
+  if (has_col($pdo, 'breeds', $c)) {
+    $cols[] = $c;
+  }
+}
+
+$selectCols = [];
+foreach ($cols as $c) {
+  $selectCols[] = "b.`$c`";
+}
+$select = implode(', ', $selectCols);
+
+$stmt = $pdo->query("SELECT $select FROM breeds b ORDER BY b.name");
+$breeds = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<main>
+  <section class="py-5">
+    <div class="container">
+      <h1 class="h2 mb-4">Энциклопедия пород</h1>
+      <p class="text-muted small mb-4">Список пород берётся из БД (таблица <code>breeds</code>).</p>
+
+      <div class="row g-4">
+        <?php if (!$breeds): ?>
+          <div class="col-12">
+            <div class="alert alert-warning">
+              В таблице <b>breeds</b> пока пусто — добавь породы и обнови страницу.
+            </div>
+          </div>
+        <?php endif; ?>
+
+        <?php foreach ($breeds as $b): ?>
+          <?php
+            $name  = isset($b['name']) ? $b['name'] : 'Порода';
+            $img   = !empty($b['image_url']) ? $b['image_url'] : 'assets/img/no-photo.png';
+            $short = !empty($b['short_desc']) ? $b['short_desc'] : 'Описание пока не добавлено.';
+
+            $link = 'breed.php?id=' . urlencode((string)$b['id']);
+            if (!empty($b['slug'])) {
+              $link = 'breed.php?slug=' . urlencode((string)$b['slug']);
+            }
+          ?>
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card shadow-neon h-100">
+              <img src="<?= h($img) ?>" class="card-img-top img-fluid" alt="Порода <?= h($name) ?>">
+              <div class="card-body">
+                <h3 class="card-title h5"><?= h($name) ?></h3>
+                <p class="card-text"><?= h($short) ?></p>
+                <a href="<?= h($link) ?>" class="btn btn-sm btn-neon">Подробнее</a>
+              </div>
+            </article>
+          </div>
+        <?php endforeach; ?>
+      </div>
+
     </div>
-    <div class="col-12 col-sm-6 col-lg-4">
-      <article class="card shadow-neon h-100">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/German%20Shepherd%20-%20DSC%200346%20(10096362833).jpg" class="card-img-top img-fluid" alt="Порода Немецкая овчарка">
-        <div class="card-body">
-          <h3 class="card-title h5">Немецкая овчарка</h3>
-          <p class="card-text">Умная, выносливая, обучаемая.</p>
-          <a href="breed-gsd.html" class="btn btn-sm btn-neon">Подробнее</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4">
-      <article class="card shadow-neon h-100">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Female%20Black%20Labrador%20Retriever.jpg" class="card-img-top img-fluid" alt="Порода Лабрадор-ретривер">
-        <div class="card-body">
-          <h3 class="card-title h5">Лабрадор-ретривер</h3>
-          <p class="card-text">Спокойный и дружелюбный компаньон.</p>
-          <a href="breed-labrador.html" class="btn btn-sm btn-neon">Подробнее</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4">
-      <article class="card shadow-neon h-100">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Golden%20Retriever%20standing%20Tucker.jpg" class="card-img-top img-fluid" alt="Порода Золотистый ретривер">
-        <div class="card-body">
-          <h3 class="card-title h5">Золотистый ретривер</h3>
-          <p class="card-text">Ласковый, контактный и терпеливый.</p>
-          <a href="breed-golden.html" class="btn btn-sm btn-neon">Подробнее</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4">
-      <article class="card shadow-neon h-100">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Siberian-husky-1291343_1920.jpg" class="card-img-top img-fluid" alt="Порода Сибирский хаски">
-        <div class="card-body">
-          <h3 class="card-title h5">Сибирский хаски</h3>
-          <p class="card-text">Любит бег, независим в дрессировке.</p>
-          <a href="breed-husky.html" class="btn btn-sm btn-neon">Подробнее</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4">
-      <article class="card shadow-neon h-100">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Great%20Dane%20puppy%20blue.jpg" class="card-img-top img-fluid" alt="Порода Немецкий дог">
-        <div class="card-body">
-          <h3 class="card-title h5">Немецкий дог</h3>
-          <p class="card-text">Нежный гигант — друг всей семьи.</p>
-          <a href="breed-greatdane.html" class="btn btn-sm btn-neon">Подробнее</a>
-        </div>
-      </article>
-    </div>
-    </div>
-  </div>
-</section>
+  </section>
 </main>
+
+<?php require_once __DIR__ . '/footer.php'; ?>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
   });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-// Inline script (SCRIPT container) required by the lab:
-(function() {
-  // Show active page in nav
-  const here = location.pathname.split('/').pop();
-  document.querySelectorAll('nav a').forEach(a => {
-    if (a.getAttribute('href') === here) a.classList.add('active-link');
-  });
-})();
-</script>
 </body>
 </html>
-<?php require_once __DIR__.'/footer.php'; ?>

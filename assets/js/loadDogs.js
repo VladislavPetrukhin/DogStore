@@ -1,11 +1,16 @@
 // assets/js/loadDogs.js
-// AJAX-каталог + поиск без перезагрузки страницы
+// AJAX-каталог + поиск без перезагрузки страницы + модалка с подробностями
 
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('dogs-container');
   const searchInput = document.getElementById('dog-search');
 
   if (!container) return;
+
+  const modalEl = document.getElementById('dogModal');
+  const modalTitle = document.getElementById('dogModalTitle');
+  const modalBody = document.getElementById('dogModalBody');
+  const modal = (modalEl && window.bootstrap) ? new bootstrap.Modal(modalEl) : null;
 
   // === Загрузка собак (все или по поиску) ===
   function loadDogs(query = '') {
@@ -18,9 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(dogs => {
         container.innerHTML = '';
 
-        if (!dogs.length) {
-          container.innerHTML =
-            '<p class="text-muted">Ничего не найдено</p>';
+        if (!Array.isArray(dogs) || !dogs.length) {
+          container.innerHTML = '<p class="text-muted">Ничего не найдено</p>';
           return;
         }
 
@@ -33,15 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
           col.className = 'col-12 col-sm-6 col-lg-4';
 
           col.innerHTML = `
-            <article class="card p-3 h-100 dog-card" data-id="${d.id}">
+            <article class="card p-3 h-100 dog-card" data-id="${d.id}" role="button" tabindex="0">
               <img src="${img}"
                    class="card-img-top mb-3"
                    style="height:260px;object-fit:cover;">
               
-              <h3 class="h5 mb-1">${d.name}</h3>
+              <h3 class="h5 mb-1">${escapeHtml(d.name ?? '—')}</h3>
 
               <span class="badge bg-primary mb-2">
-                ${d.breed || 'Порода не указана'}
+                ${escapeHtml(d.breed || 'Порода не указана')}
               </span>
 
               <p class="mb-1">
@@ -49,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </p>
 
               <p class="text-muted small">
-                ${d.description ? d.description.substring(0, 80) + '…' : ''}
+                ${d.description ? escapeHtml(String(d.description).substring(0, 80)) + '…' : ''}
               </p>
             </article>
           `;
@@ -59,13 +63,91 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(err => {
         console.error('Ошибка AJAX:', err);
-        container.innerHTML =
-          '<p class="text-danger">Ошибка загрузки данных</p>';
+        container.innerHTML = '<p class="text-danger">Ошибка загрузки данных</p>';
       });
   }
 
-  // 🔥 ВАЖНО: загружаем ВСЕХ собак при открытии страницы
-  loadDogs();
+  // === Подробности по собаке (для модалки) ===
+  function loadDogDetails(id) {
+    if (!modal || !modalTitle || !modalBody) return;
+
+    modalTitle.textContent = 'Загрузка...';
+    modalBody.innerHTML = '<div class="text-muted">Подгружаем данные…</div>';
+    modal.show();
+
+    fetch(`/dynamic-api/dog.php?id=${encodeURIComponent(id)}`)
+      .then(res => res.json().then(data => ({ ok: res.ok, data })))
+      .then(({ ok, data }) => {
+        if (!ok) throw new Error(data?.error || 'Ошибка загрузки');
+
+        const img = data.main_photo
+          ? `/dogpanel/uploads/dogs/${data.main_photo}`
+          : `/assets/img/no-photo.png`;
+
+        modalTitle.textContent = data.name || 'Собака';
+
+        const age = (data.age !== null && data.age !== undefined && data.age !== '')
+          ? `<div class="mb-2"><strong>Возраст:</strong> ${escapeHtml(String(data.age))}</div>`
+          : '';
+
+        const price = (data.price !== null && data.price !== undefined && data.price !== '')
+          ? `<div class="mb-2"><strong>Цена:</strong> ${escapeHtml(String(data.price))}</div>`
+          : '';
+
+        const breed = data.breed
+          ? `<span class="badge bg-primary">${escapeHtml(String(data.breed))}</span>`
+          : `<span class="badge bg-secondary">Порода не указана</span>`;
+
+        const desc = data.description
+          ? `<div class="mt-3"><strong>Описание</strong><div class="text-muted mt-1">${nl2br(escapeHtml(String(data.description)))}</div></div>`
+          : `<div class="mt-3 text-muted">Описание не добавлено.</div>`;
+
+        modalBody.innerHTML = `
+          <div class="row g-4">
+            <div class="col-lg-5">
+              <img src="${img}" class="img-fluid rounded-3" alt="">
+            </div>
+            <div class="col-lg-7">
+              <div class="mb-3">${breed}</div>
+              ${age}
+              ${price}
+              ${desc}
+            </div>
+          </div>
+        `;
+      })
+      .catch(err => {
+        console.error(err);
+        modalTitle.textContent = 'Ошибка';
+        modalBody.innerHTML = `<div class="text-danger">${escapeHtml(err.message || 'Не удалось загрузить данные')}</div>`;
+      });
+  }
+
+  // === Делегирование кликов по карточкам ===
+  container.addEventListener('click', (e) => {
+    const card = e.target.closest('.dog-card');
+    if (!card) return;
+    const id = card.getAttribute('data-id');
+    if (id) loadDogDetails(id);
+  });
+
+  // Enter по карточке (чтобы было “как у взрослых”)
+  container.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter') return;
+    const card = e.target.closest('.dog-card');
+    if (!card) return;
+    const id = card.getAttribute('data-id');
+    if (id) loadDogDetails(id);
+  });
+
+  // === Автоподстановка поиска из URL ?q=... (удобно для breed.php) ===
+  const urlQ = new URLSearchParams(location.search).get('q');
+  if (searchInput && urlQ) {
+    searchInput.value = urlQ;
+    loadDogs(urlQ);
+  } else {
+    loadDogs();
+  }
 
   // 🔎 Поиск (AJAX)
   if (searchInput) {
@@ -76,5 +158,18 @@ document.addEventListener('DOMContentLoaded', () => {
         loadDogs(searchInput.value.trim());
       }, 300);
     });
+  }
+
+  // helpers
+  function escapeHtml(s) {
+    return String(s)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#039;');
+  }
+  function nl2br(s) {
+    return String(s).replace(/\n/g, '<br>');
   }
 });
