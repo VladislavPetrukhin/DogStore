@@ -1,6 +1,6 @@
         </section>
         <footer class="footer">
-            <span>DogPanel &copy; <?php echo date('Y'); ?> · Лабораторная работа по PHP/MySQL</span>
+            <span>DogPanel &copy; <?php echo date('Y'); ?>Панель управления для DogStore</span>
         </footer>
     </main>
 </div>

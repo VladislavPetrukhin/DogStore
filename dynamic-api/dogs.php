@@ -1,8 +1,4 @@
 <?php
-// dynamic-api/dogs.php
-// API: возвращает список собак в JSON
-// Поддерживает поиск ?q=...
-
 require_once __DIR__ . '/../dogpanel/config.php';
 
 header('Content-Type: application/json; charset=utf-8');

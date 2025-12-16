@@ -63,7 +63,7 @@
     box-shadow: 0 0 18px rgba(255,255,255,0.2);
 }
 
-/* News list (style C — лента) */
+/* News list*/
 .news-list {
     display: flex;
     flex-direction: column;

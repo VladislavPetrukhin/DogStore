@@ -1,10 +1,8 @@
 <?php
-// Общая конфигурация для /api (JSON) и dogpanel.
-// Подключаем тот же PDO + сессию, что и в dogpanel.
+
 
 require_once __DIR__ . '/../dogpanel/config.php';
 
-// Для API всегда отвечаем JSON (без HTML/редиректов)
 header('Content-Type: application/json; charset=utf-8');
 
 function json_out($data, int $code = 200): void {

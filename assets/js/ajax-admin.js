@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const dogsBody = document.getElementById('dogsBody');
   const editModalEl = document.getElementById('editModal');
 
-  // Если мы не на странице с таблицей собак — просто выходим, без ошибок
   if (!dogsBody || !editModalEl) return;
 
   const editModal = new bootstrap.Modal(editModalEl);
@@ -36,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     editErr.textContent = '';
   }
 
-  // ✅ Делегирование кликов: работает и для существующих, и для динамических кнопок
   dogsBody.addEventListener('click', async (e) => {
     const btn = e.target.closest('button[data-act]');
     if (!btn) return;
@@ -45,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const id = btn.dataset.id;
     if (!id) return;
 
-    // Найдём текущую строку, чтобы потом обновлять/удалять без reload
     const row = btn.closest('tr');
 
     try {
@@ -65,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         editDesc.value = dog.description || '';
         hideErr();
 
-        // запомним строку, которую редактируем
         editModalEl.dataset.rowId = String(dog.id);
 
         editModal.show();
@@ -77,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ✅ Сохранение (AJAX)
   if (saveBtn) {
     saveBtn.addEventListener('click', async () => {
       hideErr();
@@ -90,13 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         await api('../api/admin/dog_update.php', { id, name, price, description });
 
-        // Обновим строку в таблице (без перезагрузки)
         const rowId = editModalEl.dataset.rowId;
         if (rowId) {
           const tr = dogsBody.querySelector(`button[data-id="${rowId}"]`)?.closest('tr');
           if (tr) {
-            // В твоей таблице колонки: ID | Имя | Порода | Создано | Действия
-            // Имя — 2-я колонка (index 1)
             tr.children[1].textContent = name;
           }
         }

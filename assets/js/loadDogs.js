@@ -1,6 +1,3 @@
-// assets/js/loadDogs.js
-// AJAX-каталог + поиск без перезагрузки страницы + модалка с подробностями
-
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('dogs-container');
   const searchInput = document.getElementById('dog-search');
@@ -12,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalBody = document.getElementById('dogModalBody');
   const modal = (modalEl && window.bootstrap) ? new bootstrap.Modal(modalEl) : null;
 
-  // === Загрузка собак (все или по поиску) ===
   function loadDogs(query = '') {
     const url = query
       ? `/dynamic-api/dogs.php?q=${encodeURIComponent(query)}`
@@ -67,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // === Подробности по собаке (для модалки) ===
   function loadDogDetails(id) {
     if (!modal || !modalTitle || !modalBody) return;
 
@@ -123,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // === Делегирование кликов по карточкам ===
   container.addEventListener('click', (e) => {
     const card = e.target.closest('.dog-card');
     if (!card) return;
@@ -131,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (id) loadDogDetails(id);
   });
 
-  // Enter по карточке (чтобы было “как у взрослых”)
   container.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter') return;
     const card = e.target.closest('.dog-card');
@@ -140,7 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (id) loadDogDetails(id);
   });
 
-  // === Автоподстановка поиска из URL ?q=... (удобно для breed.php) ===
   const urlQ = new URLSearchParams(location.search).get('q');
   if (searchInput && urlQ) {
     searchInput.value = urlQ;
@@ -149,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadDogs();
   }
 
-  // 🔎 Поиск (AJAX)
   if (searchInput) {
     let timer;
     searchInput.addEventListener('input', () => {
@@ -160,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // helpers
   function escapeHtml(s) {
     return String(s)
       .replaceAll('&', '&amp;')

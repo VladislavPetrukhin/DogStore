@@ -2,7 +2,6 @@
 require_once __DIR__ . '/config.php';
 require_login();
 
-// Fetch photos
 $stmt = $pdo->query("SELECT * FROM gallery_photos ORDER BY uploaded_at DESC");
 $photos = $stmt->fetchAll();
 ?>

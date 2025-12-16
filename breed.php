@@ -26,9 +26,7 @@ function has_col(PDO $pdo, $table, $col) {
 function render_maybe_html($s) {
   $s = (string)$s;
   if ($s === '') return '';
-  // если похоже на HTML — рендерим как есть
   if (strpos($s, '<') !== false && strpos($s, '>') !== false) return $s;
-  // иначе как текст
   return '<p>' . nl2br(h($s)) . '</p>';
 }
 

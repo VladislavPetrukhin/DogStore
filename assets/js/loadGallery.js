@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 thumbs.appendChild(small);
             });
 
-            // Инициализируем slick, когда всё готово
             const $main = window.jQuery('.dog-carousel.main-slider');
             const $thumbs = window.jQuery('.dog-thumbs.thumb-slider');
 

@@ -28,7 +28,6 @@ require_once __DIR__.'/header.php';
   <!-- Галерея -->
   <script defer src="assets/js/loadGallery.js"></script>
 <style>
-/* ОЧЕНЬ ЖЕСТКИЕ СТИЛИ — перекрывают любую тему */
 .main-slider .slick-slide,
 .dog-carousel.main-slider .slick-slide {
     display: flex !important;
@@ -47,7 +46,6 @@ require_once __DIR__.'/header.php';
     border-radius: 12px !important;
 }
 
-/* Миниатюры */
 .thumb-slider .slick-slide img,
 .dog-thumbs.thumb-slider .slick-slide img {
     height: 100px !important;
@@ -66,7 +64,6 @@ require_once __DIR__.'/header.php';
     position: relative;
 }
 
-/* Стрелки */
 .main-slider .slick-prev,
 .main-slider .slick-next {
     top: 50% !important;
@@ -74,7 +71,6 @@ require_once __DIR__.'/header.php';
     z-index: 10;
 }
 
-/* Немного отодвинем от краёв */
 .main-slider .slick-prev {
     left: 12px;
 }
@@ -111,11 +107,9 @@ require_once __DIR__.'/header.php';
 </main>
 
 
-<!-- Bootstrap JS (если нужен) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-  // актуальный год в футере
   document.addEventListener('DOMContentLoaded', () => {
     const y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();

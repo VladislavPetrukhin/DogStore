@@ -33,8 +33,6 @@ if ($q !== '') {
 <head>
   <meta charset="utf-8">
   <title>Поиск — Dog Store</title>
-
-  <!-- ТВОИ реальные стили -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/style-urbanpaw.css">
 </head>
@@ -43,8 +41,6 @@ if ($q !== '') {
 <?php include 'header.php'; ?>
 <?php include 'head.php'; ?>
 
-
-<!-- ===== КОНТЕНТ ===== -->
 <main class="container" style="max-width:720px; margin: 48px auto;">
 
   <h1>Поиск по сайту</h1>

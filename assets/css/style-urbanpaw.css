@@ -1,5 +1,5 @@
 
-/* ==== Urban Paw: Dark Neon Youthful Theme ==== */
+/* ==== Urban Paw: Dark Neon Theme ==== */
 :root {
   --neon-lime: #B7FF00;
   --neon-cyan: #00E0FF;
@@ -152,7 +152,7 @@ body.contrast-boost{
   box-shadow: 0 0 0 .25rem rgba(0,224,255,.15);
 }
 
-/* === 2. Таблица (График работы) — тёмная === */
+
 .table {
   background-color: #1A1A20;
   border-color: rgba(255,255,255,.12);
@@ -162,7 +162,6 @@ body.contrast-boost{
   border-color: rgba(255,255,255,.12);
 }
 
-/* === 3. Музей — текст эпох сделать светлым === */
 #museum, .container .card p, .container .card div {
   color: var(--text-body);
 }
@@ -172,12 +171,11 @@ body.contrast-boost{
   border: 1px solid rgba(255,255,255,.12);
 }
 
-/* === 4. Аккордеон — убрать синее системное выделение === */
 .accordion-button:focus {
   box-shadow: none;
   border-color: rgba(0,0,0,0);
 }
-/* Тёмная таблица с явными переменными Bootstrap */
+
 #contacts .table,
 .card .table {
   --bs-table-color:            #F5F7FA;
@@ -199,21 +197,20 @@ body.contrast-boost{
 #contacts .table thead th,
 .card .table thead th { color: #FFFFFF; font-weight: 700; }
 
-/* Делаем тело карточки колоночным и растягиваем текст */
+
 .card .card-body { display: flex; flex-direction: column; }
 
-/* если в карточке одна кнопка (как в "Породы") — прижать её вниз */
+
 .card .card-body > .btn { margin-top: auto; }
 
-/* если в карточке внизу группа кнопок (как в "Каталог") — прижать группу вниз */
+
 .card .card-body > .d-flex.gap-2 { margin-top: auto; }
 
-/* на всякий случай — растянуть подзаголовок/описание, чтобы занимали свободное место */
+
 .card .card-body .card-text { flex: 1 1 auto; }
 
 
 
-/* ===== Lab: helpers ===== */
 .active-link { text-decoration: underline; }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 16px; }
@@ -225,15 +222,15 @@ body.contrast-boost{
 .error { color: #f77; font-size: 0.9em; margin-left: 8px; }
 .pre { white-space: pre-wrap; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; }
 
-/* Remove blue focus ring style in tabs (as per earlier feedback) */
+
 :focus { outline: none; }
 :focus-visible { outline: 2px solid #88ccff55; outline-offset: 2px; }
 
-/* Darken select options in catalog filters to match dark theme */
+
 select, input, textarea { background: #111; color: #eee; border: 1px solid #333; border-radius: 10px; padding: 8px; }
 
 
-/* Unify nav links (in case injected anchors have no class) */
+
 header .nav a { 
   color: #e5e7eb !important; 
   text-decoration: none; 
@@ -499,7 +496,7 @@ header .nav a:hover { text-decoration: underline; }
   position: fixed;
   inset: 0;
   z-index: 0;
-  pointer-events: none; /* чтобы меню и кнопки нормально нажимались */
+  pointer-events: none;
 }
 
 /* весь контент поверх частиц */

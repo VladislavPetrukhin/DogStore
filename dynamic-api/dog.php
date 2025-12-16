@@ -1,6 +1,4 @@
 <?php
-// dynamic-api/dog.php
-// API: возвращает одну собаку (JSON) по ?id=...
 
 require_once __DIR__ . '/../dogpanel/config.php';
 

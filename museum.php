@@ -79,9 +79,7 @@ require_once __DIR__.'/header.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-// Inline script (SCRIPT container) required by the lab:
 (function() {
-  // Show active page in nav
   const here = location.pathname.split('/').pop();
   document.querySelectorAll('nav a').forEach(a => {
     if (a.getAttribute('href') === here) a.classList.add('active-link');
