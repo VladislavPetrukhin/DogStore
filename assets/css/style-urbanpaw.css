@@ -504,3 +504,22 @@ header, main, footer{
   position: relative;
   z-index: 1;
 }
+/* Popular breeds: выравнивание карточек по контенту */
+.breed-img{
+  height: 200px;
+  object-fit: cover;
+}
+
+/* одинаковая высота заголовка (например, “Немецкая овчарка” в 2 строки) */
+.breed-title{
+  min-height: calc(1.2em * 2);
+}
+
+/* одинаковая высота описания, кнопки всегда внизу */
+.breed-desc{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  min-height: calc(1.2em * 3);
+}

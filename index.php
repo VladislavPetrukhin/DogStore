@@ -87,19 +87,124 @@
 </section>
 
 
-  <!-- Popular breeds -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="h3 mb-4">Популярные породы</h2>
-      <div class="row g-4">
-
-        <!-- Карточки — оставлены без изменений -->
-
-        <!-- ... -->
-        
-      </div>
+<!-- Popular breeds -->
+<section class="py-5">
+  <div class="container">
+    <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-4">
+      <h2 class="h3 mb-0">Популярные породы</h2>
+      <a href="breeds.php" class="btn btn-sm btn-outline-light">Все породы</a>
     </div>
-  </section>
+
+    <div class="row g-4">
+
+      <!-- Самоед -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <article class="card shadow-neon h-100 overflow-hidden breed-card">
+          <img
+            src="https://cdn.profile.ru/wp-content/uploads/2021/06/Samoedskaya-sobaka.jpg"
+            class="card-img-top breed-img"
+            alt="Самоед"
+          >
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h3 class="h5 mb-0 breed-title">Самоед</h3>
+              <span class="badge bg-primary">топ</span>
+            </div>
+
+            <p class="text-muted small mb-3 breed-desc">
+              Пушистик-улыбака: дружелюбный, активный, семейный.
+            </p>
+
+            <div class="d-grid gap-2 mt-auto">
+              <a href="breed.php?id=1" class="btn btn-neon btn-sm">Подробнее</a>
+              <a href="catalog.php?q=%D0%A1%D0%B0%D0%BC%D0%BE%D0%B5%D0%B4" class="btn btn-outline-light btn-sm">Смотреть собак</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Немецкая овчарка -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <article class="card shadow-neon h-100 overflow-hidden breed-card">
+          <img
+            src="https://i.pinimg.com/736x/97/a2/3f/97a23f867c347604fb542e98c624e2b8.jpg"
+            class="card-img-top breed-img"
+            alt="Немецкая овчарка"
+          >
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h3 class="h5 mb-0 breed-title">Немецкая овчарка</h3>
+              <span class="badge bg-primary">умница</span>
+            </div>
+
+            <p class="text-muted small mb-3 breed-desc">
+              Служебная легенда: интеллект, дисциплина, верность.
+            </p>
+
+            <div class="d-grid gap-2 mt-auto">
+              <a href="breed.php?id=2" class="btn btn-neon btn-sm">Подробнее</a>
+              <a href="catalog.php?q=%D0%9D%D0%B5%D0%BC%D0%B5%D1%86%D0%BA%D0%B0%D1%8F%20%D0%BE%D0%B2%D1%87%D0%B0%D1%80%D0%BA%D0%B0" class="btn btn-outline-light btn-sm">Смотреть собак</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Лабрадор -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <article class="card shadow-neon h-100 overflow-hidden breed-card">
+          <img
+            src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1200&q=80"
+            class="card-img-top breed-img"
+            alt="Лабрадор"
+          >
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h3 class="h5 mb-0 breed-title">Лабрадор</h3>
+              <span class="badge bg-primary">друг</span>
+            </div>
+
+            <p class="text-muted small mb-3 breed-desc">
+              Идеальный компаньон: добрый, контактный, семейный.
+            </p>
+
+            <div class="d-grid gap-2 mt-auto">
+              <a href="breed.php?id=3" class="btn btn-neon btn-sm">Подробнее</a>
+              <a href="catalog.php?q=%D0%9B%D0%B0%D0%B1%D1%80%D0%B0%D0%B4%D0%BE%D1%80%20%D1%80%D0%B5%D1%82%D1%80%D0%B8%D0%B2%D0%B5%D1%80" class="btn btn-outline-light btn-sm">Смотреть собак</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Корги -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <article class="card shadow-neon h-100 overflow-hidden breed-card">
+          <img
+            src="https://avatars.mds.yandex.net/get-ydo/9710801/2a00000189e8f21a78a9d2ee0c0e11e8d0ce/diploma"
+            class="card-img-top breed-img"
+            alt="Корги"
+          >
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h3 class="h5 mb-0 breed-title">Корги</h3>
+              <span class="badge bg-primary">вайб</span>
+            </div>
+
+            <p class="text-muted small mb-3 breed-desc">
+              Компактный пастух: умный, бодрый, харизматичный.
+            </p>
+
+            <div class="d-grid gap-2 mt-auto">
+              <a href="breed.php?id=7" class="btn btn-neon btn-sm">Подробнее</a>
+              <a href="catalog.php?q=%D0%9A%D0%BE%D1%80%D0%B3%D0%B8" class="btn btn-outline-light btn-sm">Смотреть собак</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 </main>
 
 <?php include 'footer.php'; ?>
