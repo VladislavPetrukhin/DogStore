@@ -3,9 +3,9 @@
     <p class="m-0 small text-muted">&copy; <span id="year">2025</span> Dog Store — молодёжный выбор ответственных хозяев.</p>
 
     <nav class="mt-2 mt-md-0">
-      <a class="text-decoration-none link-neon me-3" href="about.html#contacts">Связаться</a>
-      <a class="text-decoration-none link-neon me-3" href="breeds.html">Энциклопедия</a>
-      <a class="text-decoration-none link-neon" href="catalog.html">Щенки</a>
+      <a class="text-decoration-none link-neon me-3" href="about.php">Связаться</a>
+      <a class="text-decoration-none link-neon me-3" href="breeds.php">Энциклопедия</a>
+      <a class="text-decoration-none link-neon" href="catalog.php">Щенки</a>
     </nav>
   </div>
 </footer>
