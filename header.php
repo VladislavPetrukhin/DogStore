@@ -30,6 +30,7 @@
         <li class="nav-item"><a class="nav-link" href="guestbook.php">Гостевая</a></li>
         <li class="nav-item"><a class="nav-link" href="javascript:generateCoupon()">Купон -10%</a></li>
         <li class="nav-item"><a class="nav-link" href="stats.php">Статистика</a></li>
+	<li class="nav-item"><a class="nav-link" href="dogpanel/index.php">Вход</a></li>
       </ul>
     </div>
   </nav>

@@ -46,7 +46,6 @@ $breeds = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <section class="py-5">
     <div class="container">
       <h1 class="h2 mb-4">Энциклопедия пород</h1>
-      <p class="text-muted small mb-4">Список пород берётся из БД (таблица <code>breeds</code>).</p>
 
       <div class="row g-4">
         <?php if (!$breeds): ?>
