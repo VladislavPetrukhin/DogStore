@@ -52,17 +52,17 @@ include __DIR__ . '/header.php';
 
   <div class="form-row">
     <label>Имя</label>
-    <input id="newName">
+    <input id="newName" class="input">
   </div>
 
   <div class="form-row">
     <label>Цена</label>
-    <input id="newPrice" type="number" min="0">
+    <input id="newPrice" type="number" min="0" class="input">
   </div>
 
   <div class="form-row">
     <label>Описание</label>
-    <textarea id="newDesc"></textarea>
+    <textarea id="newDesc" class="input"></textarea>
   </div>
 
   <div class="form-actions">
