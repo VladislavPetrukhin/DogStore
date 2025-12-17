@@ -153,7 +153,7 @@
       <div class="col-12 col-sm-6 col-lg-3">
         <article class="card shadow-neon h-100 overflow-hidden breed-card">
           <img
-            src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1200&q=80"
+            src="https://i.pinimg.com/736x/42/62/62/42626220ecd2c750b4eef7214d604258.jpg"
             class="card-img-top breed-img"
             alt="Лабрадор"
           >
